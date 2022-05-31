@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1645458315654.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2022AF43",
+    "lastKnownWriteTime" : 1645458494,
+    "last_content_update" : 1645458494771,
+    "path" : "~/Desktop/BLOG/my_blog/_talks/talks.Rmd",
+    "project_path" : "_talks/talks.Rmd",
+    "properties" : {
+        "cursorPosition" : "2,10",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 14,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

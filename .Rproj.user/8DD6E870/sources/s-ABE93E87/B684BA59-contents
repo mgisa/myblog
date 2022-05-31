@@ -1,0 +1,66 @@
+---
+title: "50th Anniversary of UNESCO's MAB Programme"
+description: |
+  This is an executive summary of the talk presentation given to the different types of audience attended the 50th anniversary of UNESCO's MAB Programme. This is an intergovernmental scientific programme that aims to establish a scientific basis for enhancing the relationship between people and their environments. It combines the natural and social sciences with a view to improving human livelihoods and safeguarding natural and managed ecosystems, thus promoting innovative approaches to economic development that are socially and culturally appropriate and environmentally sustainable. 
+base_url: https://rpubs.com/mgisa
+author:
+  - name: Murera Gisa
+    url: https://rpubs.com/mgisa
+    affiliation: AIMS Rwanda
+    affiliation_url: https://nexteinstein.org
+date: 2022-02-21
+categories:
+  - talk
+  - tidyverse
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    self_contained: true
+draft: false
+editor_options: 
+  chunk_output_type: console
+preview: poster.png
+self_contained: true
+---
+
+```{r, echo=FALSE, fig.cap="gganimate: worth to try it and learn it", out.extra="class=external",}
+#knitr::include_graphics("poster.png")
+```
+
+
+```{r thumbnail, eval=TRUE, echo=FALSE}
+#| fig.cap: > 
+#|   Question and answer, paraphrased, from the workshop.
+#| fig.alt: >
+#|   Question: (39:27) How is running tests different than trying out different data types and sets on your function and debugging?
+#|   Answer: It is not different at all! What I have learned from being around other talented programmers is that they don’t have amazing brains that they can hold all these different variables in… testing is about getting that stuff out of your brain so that a computer can execute it.
+#knitr::include_graphics("poster.png")
+```
+
+```{r icon-links, eval=TRUE, echo=FALSE}
+distilltools::icon_link(icon = "fas fa-pencil-alt",
+          text = "blog post",
+          url = "https://drive.google.com/file/d/15B1pUOTJ9naYxYaKiXsVEtLbzQF27CD4/view")
+          
+          
+#distilltools::icon_link(icon = "fas fa-play-circle",
+          #text = "Recording",
+          #url = "https://youtu.be/4bPekjzIYiU")
+```
+
+# Overview
+
+The world day celebration of 50th anniversary of [UNESCO](https://en.unesco.org/mab/about){target="_blank"} Man and Biosphere (MAB) Program that aims to raise the awareness in environmental protection and create the free-pollution communities around the world.
+
+# Abstract
+
+In this workshop, [Murera Gisa](https://twitter.com/MureraG){target="_blank"} discuss how the data science technology should be used to protect the environment by focussing on the air quality data analysis, visualization and information dissemination through the developed Indoor Air Quality monitoring tools.
+We demonstrate handy functions in `usethis`, `devtools`,`openair`and other R built-in libraries and  strategical packages
+for the entire data analysis workflow to the monitoring tool deployment and publicly avail it for policy implimentation.
+
+The speaker share the other  blog done on the __Impact of Weather Conditions on Air Pollution Concentration__ which can be found [Here](https://rpubs.com/mgisa/Air_Quality_Data_Visualization) to clearly show how data analytics might relevently identify the insightful information hidden from data and support the mitigation policy implimentation.
+
+
+

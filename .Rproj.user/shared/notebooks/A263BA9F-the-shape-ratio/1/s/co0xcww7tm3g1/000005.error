@@ -1,0 +1,1 @@
+{"frames":[{"character_number":0,"end_character_number":0,"end_line_number":0,"file":"","func":"monthly_stock_returns(\"GOOG\", year)","line_number":0}],"message":"Error in getSymbols(ticker, src = \"yahoo\", auto.assign = FALSE, warnings = FALSE) : \n  could not find function \"getSymbols\"\n"}

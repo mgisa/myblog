@@ -1,0 +1,20 @@
+---
+title: "Murera Gisa"
+image: "images/Gisa.jpg"
+links:
+  - label: LinkedIn
+    icon: fab fa-linkedin-in
+    url: "https://linkedin.com/in/murera-gisa-7009aa155"
+  - label: Twitter
+    url: "https://twitter.com/MureraG"
+  - label: GitHub
+    url: "https://github.com/mgisa"
+  - label: Rpubs
+    url: "https://rpubs.com/mgisa"
+output:
+  postcards::jolla
+site: distill::distill_website
+#toc:yes
+---
+
+I am a Data scientist interested in Deep Learning and Natural Language Processing. I love wrangling, analyzing, visualizing and modelling data to publicily communicate the outputs. 

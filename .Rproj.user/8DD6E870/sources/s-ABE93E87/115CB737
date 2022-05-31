@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1634289893935.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "115CB737",
+    "lastKnownWriteTime" : 1645173620,
+    "last_content_update" : 1645173620021,
+    "path" : "~/Desktop/BLOG/my_blog/_posts/2021-10-15-game-of-throne/game-of-throne.Rmd",
+    "project_path" : "_posts/2021-10-15-game-of-throne/game-of-throne.Rmd",
+    "properties" : {
+        "chunk_output_type" : "console",
+        "cursorPosition" : "35,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

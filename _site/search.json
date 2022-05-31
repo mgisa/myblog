@@ -1,0 +1,55 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "My Blog",
+      "description": "Some additional details about the blog",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2022-05-31T09:42:39+02:00"
+    },
+    {
+      "path": "gallery.html",
+      "title": "Gallery of featured posts",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2022-05-31T09:42:40+02:00"
+    },
+    {
+      "path": "home.html",
+      "title": "Murera Gisa",
+      "author": [],
+      "contents": "\n\n          \n          \n          \n          \n          \n          \n          \n          Home\n          Blog\n          Publications\n          Gallery\n          About\n          \n          \n          \n          \n          \n          \n          \n          \n          \n          \n          \n          \n          ☰\n          \n          \n      \n        \n          \n            Murera Gisa\n          \n          \n            \n              I am a Data scientist interested in Deep Learning and Natural Language Processing. I love wrangling, analyzing, visualizing and modelling data to publicily communicate the outputs.\n            \n            \n              I am a Data scientist interested in Deep Learning and Natural Language Processing. I love wrangling, analyzing, visualizing and modelling data to publicily communicate the outputs.\n            \n          \n\n          \n            \n              \n                  \n                    \n                      LinkedIn\n                    \n                  \n                \n                                \n                  \n                    \n                      Twitter\n                    \n                  \n                \n                                \n                  \n                    \n                      GitHub\n                    \n                  \n                \n                                \n                  \n                    \n                      Rpubs\n                    \n                  \n                \n                              \n          \n\n          \n            \n              \n                                \n                  \n                    LinkedIn\n                  \n                \n                                \n                  \n                    Twitter\n                  \n                \n                                \n                  \n                    GitHub\n                  \n                \n                                \n                  \n                    Rpubs\n                  \n                \n                              \n            \n          \n        \n      \n    \n\n    \n    \n    ",
+      "last_modified": "2022-05-31T09:42:41+02:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Blog",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2022-05-31T09:42:42+02:00"
+    },
+    {
+      "path": "publication.html",
+      "title": "Untitled",
+      "description": "A new article created using the Distill format.\n",
+      "author": [
+        {
+          "name": "Nora Jones",
+          "url": "https://example.com/norajones"
+        }
+      ],
+      "date": "`r Sys.Date()`",
+      "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill for R Markdown at https://rstudio.github.io/distill.\n\n\n\n",
+      "last_modified": "2022-05-31T09:42:43+02:00"
+    },
+    {
+      "path": "talks.html",
+      "title": "Publications",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2022-05-31T09:42:44+02:00"
+    }
+  ],
+  "collections": ["posts/posts.json", "talks/talks.json"]
+}

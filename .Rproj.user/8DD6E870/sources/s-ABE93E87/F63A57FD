@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1638861439042.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F63A57FD",
+    "lastKnownWriteTime" : 1653982961,
+    "last_content_update" : 1653982961,
+    "path" : "~/Desktop/BLOG/my_blog/_site/home.html",
+    "project_path" : "_site/home.html",
+    "properties" : {
+        "cursorPosition" : "332,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "html"
+}

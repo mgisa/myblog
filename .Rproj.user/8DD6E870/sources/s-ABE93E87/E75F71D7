@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1634224639124.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E75F71D7",
+    "lastKnownWriteTime" : 1638862069,
+    "last_content_update" : 1638862069580,
+    "path" : "~/Desktop/BLOG/my_blog/home.Rmd",
+    "project_path" : "home.Rmd",
+    "properties" : {
+        "cursorPosition" : "20,0",
+        "scrollLine" : "9",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

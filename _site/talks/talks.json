@@ -1,0 +1,30 @@
+[
+  {
+    "path": "talks/2022-02-21-sentiments-banks/",
+    "title": "Text Mining for Public Sentiment Analytics in the National Bank of Rwanda",
+    "description": "This research paper has been published at African Economic Research Consortium (AERC|2021). Which is the most active research and capacity building institutions in the world with a focus on Africa.",
+    "author": [
+      {
+        "name": "Murera Gisa (BNR, elgisamur@gmail.com)",
+        "url": {}
+      },
+      {
+        "name": "Dominique Ntirushwa (BNR, dntirushwa@gmail.com)",
+        "url": {}
+      },
+      {
+        "name": "Sheilla M.Rukundo (BNR, smuhongayire@bnr.rw)",
+        "url": {}
+      }
+    ],
+    "date": "2022-02-21",
+    "categories": [
+      "publication paper",
+      "NLP"
+    ],
+    "contents": "\n\nContents\nAbstract\nPublication House and Link\n\nAbstract\nToday’s internet has become an essential platform for accessing relevant information on various topics and policies; as well as on institution’s daily activities. Countless individual users share their opinions and positions on social life, policies, and politics every day using several micro-bloggings, including Twitter. The exponential increase of information sharing over Twitter makes it a rich source of data and an ultimate ocean of information for opinions mining and sentiment analysis. To gain insights on how such information benefits the central banks’ monetary policy communication, this paper explores the Twitter posts of the National Bank of Rwanda for sentiment analysis by extracting subjective feelings, emotions and public audience perceptions and opinions as feedback to the National Bank of Rwanda’s communication. To understand the current trends, the National Bank of Rwanda’s twitter popularity and influential rate, as well as the public perceptions and expectations towards the bank’s tweets, we employed the natural language processing and text mining methodologies for text mining and analytics. From our analysis, the results showed that public perception and sentiment towards the central bank’s tweets are widely positive, and predicted to remain predominantly positive in the near future by the artificial neural network classifier.\nKey words: Monetary policy; Text mining; Text analytics; Social media; Sentiment analysis.\nJEL classification codes: C38, C45, C55, E52, E58\nPublication House and Link\nThe research paper has been published by African Economic Research Consortium (AERC) in November 2021. For more detail on paper please download the paper Here\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-02-21T18:32:16+02:00",
+    "input_file": {}
+  }
+]
