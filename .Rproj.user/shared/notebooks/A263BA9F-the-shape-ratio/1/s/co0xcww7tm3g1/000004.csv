@@ -1,7 +1,0 @@
-"0","# Use the function the monthly returns on 3 stocks, and pass in the 'year'
-# value. Let's choose Google, JP Morgan and Amazon
-monthly_stock_returns('GOOG', year)
-"
-"2","Error in getSymbols(ticker, src = ""yahoo"", auto.assign = FALSE, warnings = FALSE) : 
-  could not find function ""getSymbols""
-"
