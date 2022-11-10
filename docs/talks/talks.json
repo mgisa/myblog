@@ -1,0 +1,64 @@
+[
+  {
+    "path": "talks/2022-11-08-Rwanda-Childhood-Stunting/",
+    "title": "Critical Analysis of the Household Socio-Economic Status on Childhood Stunting in Rwanda",
+    "description": "This research paper has been presented at Fifth International Conference of East African Business and Economic Watch (5th EABEW-2022) held at Kigali June 16th-17th 2022).",
+    "author": [
+      {
+        "name": "Murera Gisa (National Bank of Rwanda, elgisamur@gmail.com)",
+        "url": {}
+      },
+      {
+        "name": "Afolabi Luqman (University of Kigali, aluqman@uok.ac.rw)",
+        "url": {}
+      },
+      {
+        "name": "Richard Kabanda (University of Rwanda, richacha@gmail.com)",
+        "url": {}
+      }
+    ],
+    "date": "2022-06-16",
+    "categories": [
+      "publication paper",
+      "Modeling",
+      "Health Economics"
+    ],
+    "contents": "\r\nAbstract\r\nBackground:\r\nOver the past years, Rwanda has experienced the sound economic development and\r\nimprovement in living standards. Contrary, lasting malnutrition and stunting among children aged less than five years remains stubbornly high and drawbacks their living standards regardless of its economic progress. Malnutrition considers main reason of children morbidity and mortality in the planet scenario, specifically in the developing countries including Rwanda. Additionally, childhood malnutrition severely affects their physical, cognitive growth and academic achievements hence poor human capital and national productivity. This study aimed to find out the crucial effect of socio-economic factors on malnutrition\r\nchildren aged under five years in Rwanda.\r\nMethods:\r\nUsing cross-sectional data of 30,056 children obtained from the Rwanda 2019-2020 Demographic and Health Survey (RDHS), this study develops a novel approach of Multinomial Logistic Regression for empirical estimation of the magnitude effects of socio-economic factors linked to the nutrition status among children under five years of age in Rwanda. The Odds Ratio (OR) and Average Marginal Effect (AME) have been used to quantify the effects of socio-economic factors on childhood\r\nnutrition status; where the confusion matrix has been extensively used to assess the performance and reliability of the estimated model.\r\nResults:\r\nEmpirical results of this study revealed that the prevalence of moderate and severe stunting was approximately \\(34.2\\% [97.5\\%𝐶𝐼 : 29.8−34.6]\\) and \\(10.4\\% [97.5\\%𝐶𝐼 : 16.3−24.8]\\) respectively\r\namong children particularly in rural areas of Rwanda. The multivariate analysis specified that the most stunting status were significantly associated with household wealth quintile, poor and poorest families $ (OR = 1.0366;0.756 [97.5%𝐶𝐼 : 1.234−3.376], 𝐴𝑀𝐸 = 0.327;0.285)$, maternal education(no and primary schooling) \\((𝑂𝑅 = 1.043;1.004 [97.5\\%𝐶𝐼 : 1.584−2.976], 𝐴𝑀𝐸 = 0.0083;0.0074)\\),\r\nparent’s occupation (unemployed, domestics and famers) \\((𝑂𝑅 = 0.842;0.649 [97.5\\%𝐶𝐼 : 0.780−1.760], 𝐴𝑀𝐸 =0.0484;0.067)\\), Household size \\((𝑂𝑅 = 0.998;0.996 [97.5\\%𝐶𝐼 : 2.34−4.76], 𝐴𝑀𝐸 = 0.0034;0.006)\\).\r\nStunting was highly correlated with the maternal age and her age at first marriage (younger and early\r\nmarried mothers). The results showed also, that stunting was mostly correlated with male gender\r\n\\((𝑂𝑅 = 1.004;0.985 [97.5\\%𝐶𝐼 : 3.41−4.56], 𝐴𝑀𝐸 = 0.5413;0.374)\\), children of urban areas(Kigali\r\ncity) \\((𝑂𝑅 = 0.991;0.978,97.5\\%𝐶𝐼 : 0.476-1.987, 𝐴𝑀𝐸 = −0.1608;−0.181)\\) for moderate and severe\r\nstunting respectively.\r\nConclusion:\r\nThis study concludes that prevalence of higher-level malnutrition leads to stunting are\r\nhighly associated with lowest socio-economic status. And it reveals that the nutrition suffering at early\r\nage leads to permanent irreversible impairment, and obviously affect future generations productivity.\r\nBesides, it recommends both policy makers and stakeholders regarding the re-allocation of resources to\r\nthe most vulnerable population for health, educational and economic benefits.\r\nKeywords:\r\nSocio-economic status, Stunting, confusion matrix, policy development\r\nJEL Classification: I14, I15, I31, O12\r\nPublication House and Link\r\nThe research paper is under reviewed and hopeful will be published soon. Then the link will be shared.\r\n\r\n\r\n\r\n",
+    "preview": "talks/2022-11-08-Rwanda-Childhood-Stunting/stunting.png",
+    "last_modified": "2022-11-07T16:33:44+02:00",
+    "input_file": {},
+    "preview_width": 2220,
+    "preview_height": 1055
+  },
+  {
+    "path": "talks/2022-02-21-sentiments-banks/",
+    "title": "Text Mining for Public Sentiment Analytics in the National Bank of Rwanda",
+    "description": "This research paper has been published at African Economic Research Consortium (AERC|2021). Which is the most active research and capacity building institutions in the world with a focus on Africa.",
+    "author": [
+      {
+        "name": "Murera Gisa (BNR, elgisamur@gmail.com)",
+        "url": {}
+      },
+      {
+        "name": "Dominique Ntirushwa (BNR, dntirushwa@gmail.com)",
+        "url": {}
+      },
+      {
+        "name": "Sheilla M.Rukundo (BNR, smuhongayire@bnr.rw)",
+        "url": {}
+      }
+    ],
+    "date": "2022-02-21",
+    "categories": [
+      "publication paper",
+      "Machine Learning",
+      "Natural Language Processing"
+    ],
+    "contents": "\r\n\r\nContents\r\nAbstract\r\nPublication House and Link\r\n\r\nAbstract\r\nToday’s internet has become an essential platform for accessing relevant information on various topics and policies; as well as on institution’s daily activities. Countless individual users share their opinions and positions on social life, policies, and politics every day using several micro-bloggings, including Twitter. The exponential increase of information sharing over Twitter makes it a rich source of data and an ultimate ocean of information for opinions mining and sentiment analysis. To gain insights on how such information benefits the central banks’ monetary policy communication, this paper explores the Twitter posts of the National Bank of Rwanda for sentiment analysis by extracting subjective feelings, emotions and public audience perceptions and opinions as feedback to the National Bank of Rwanda’s communication.\r\nTo understand the current trends, the National Bank of Rwanda’s twitter popularity and influential rate, as well as the public perceptions and expectations towards the bank’s tweets, we employed the natural language processing and text mining methodologies for text mining and analytics. From our analysis, the results showed that public perception and sentiment towards the central bank’s tweets are widely positive, and predicted to remain predominantly positive in the near future by the artificial neural network classifier.\r\nKey words: Monetary policy; Text mining; Text analytics; Social media; Sentiment analysis.\r\nJEL classification codes: C38, C45, C55, E52, E58\r\nPublication House and Link\r\nThe research paper has been published by African Economic Research Consortium (AERC) in November 2021. For more detail on paper please download the paper Here\r\n\r\n\r\n\r\n",
+    "preview": "talks/2022-02-21-sentiments-banks/sentiments.png",
+    "last_modified": "2022-11-07T16:37:09+02:00",
+    "input_file": {},
+    "preview_width": 504,
+    "preview_height": 530
+  }
+]

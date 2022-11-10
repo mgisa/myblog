@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:distill="https://distill.pub/journal/" version="2.0">
+  <channel>
+    <title/>
+    <link>https://github.com/mgisa/myblog</link>
+    <atom:link href="https://github.com/mgisa/myblog/index.xml" rel="self" type="application/rss+xml"/>
+    <description>The personal website of Murera Gisa.
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Mon, 21 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>50th Anniversary of UNESCO's MAB Programme</title>
+      <dc:creator>Murera Gisa</dc:creator>
+      <link>https://github.com/mgisa/myblog/posts/2022-02-21-unesco-mab-pgm</link>
+      <description>This is an executive summary of the talk presentation given to the different types of audience attended the 50th anniversary of UNESCO's MAB Programme. This is an intergovernmental scientific programme that aims to establish a scientific basis for enhancing the relationship between people and their environments. It combines the natural and social sciences with a view to improving human livelihoods and safeguarding natural and managed ecosystems, thus promoting innovative approaches to economic development that are socially and culturally appropriate and environmentally sustainable.</description>
+      <category>talk</category>
+      <category>tidyverse</category>
+      <guid>https://github.com/mgisa/myblog/posts/2022-02-21-unesco-mab-pgm</guid>
+      <pubDate>Mon, 21 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/mgisa/myblog/posts/2022-02-21-unesco-mab-pgm/poster.png" medium="image" type="image/png" width="1306" height="1302"/>
+    </item>
+    <item>
+      <title>#GOT Animating the Shifting of Affiliations on Amazing Movie</title>
+      <dc:creator>Murera Gisa</dc:creator>
+      <link>https://github.com/mgisa/myblog/posts/2021-10-15-game-of-throne</link>
+      <description>My first steps using the gganimate package using Game of Thrones 
+data!</description>
+      <category>data-visualization</category>
+      <category>ggplot2</category>
+      <category>animation</category>
+      <guid>https://github.com/mgisa/myblog/posts/2021-10-15-game-of-throne</guid>
+      <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/mgisa/myblog/posts/2021-10-15-game-of-throne/preview2.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>The Sharpe Ratio</title>
+      <dc:creator>Murera Gisa</dc:creator>
+      <link>https://github.com/mgisa/myblog/posts/2021-10-14-the-sharpe-ratio</link>
+      <description>In this post we present a classic finance use case using the PerformanceAnalytics, quantmod, and dygraphs packages. We'll demonstrate importing stock data, building a portfolio, and then calculating the Sharpe Ratio.</description>
+      <category>portfolio theory</category>
+      <category>dygraphs</category>
+      <guid>https://github.com/mgisa/myblog/posts/2021-10-14-the-sharpe-ratio</guid>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/mgisa/myblog/posts/2021-10-14-the-sharpe-ratio/preview.png" medium="image" type="image/png" width="1736" height="1076"/>
+    </item>
+  </channel>
+</rss>

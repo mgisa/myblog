@@ -1,0 +1,219 @@
+
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      30px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      10px;
+  --fig-cap-size:    12px;
+  /*-- Main font colors --*/
+  --title-color:     #90062E ;
+  --header-color:    rgba(193, 100, 27, 0.98);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     #C70039; 
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    sans-serif;
+  --mono-font:       monospace;
+  --body-font:       sans-serif;
+  --navbar-font:     sans-serif;  /* websites + blogs only */
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    16px;
+  --contents-size:   13px;
+}
+
+.d-contents nav a:hover {
+    color: #581845;
+    transform: scale(1.7); /* change scale to control hover zoom, now it is in 1:7 ratio */
+    padding-left:20%; /* change percentage value to control left gap during hover */
+    background-color: #FCF7EA; /* background colour on hover, kept as white as it is my bg colour */
+    display: block; /* keep it as block to station the text on hover */
+}
+
+/* Hide the ToC when resized to mobile or tablet:  480px, 768px, 900px */
+@media screen and (max-width: 900px) {
+#TOC {
+    position: relative;
+  }
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size: 15px;
+  --heading-color: rgba(255, 87, 51, 0.65); 
+  --text-size: 0.8em;
+  --text-color: rgba(12, 11, 11, 0.5);
+  background-color: #FCF7EA;
+  border-top: none !important;
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       20px;
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        18px;
+  --hover-color:      #dd424c; /* edited */
+  --bkgd-color:       #900C3F;
+}
+/*
+.distill-site-footer {
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        12px;
+  --hover-color:      #dd424c; 
+  --bkgd-color:       #AB892C;
+}
+/* edited */
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below --*/
+
+body {
+  background-color:#FCF7EA;
+}
+
+.distill-site-header .logo img {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    max-height: 100px;
+}
+
+}
+.distill-site-header {
+    height: 100px;
+}
+
+
+.distill-site-header .title {
+  width: 100%;
+  position: fixed; 
+  color: #151515
+}
+
+.distill-site-header .nav-right {
+    top: 25%;
+    position: relative;
+}
+
+d-title{
+  margin-top: 25px;
+}
+
+/* -------------Footer------------------*/
+
+.distill-site-footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  color: #050505ab;
+  background-color:#c70039;
+  margin-top: 0px;
+  padding: 50px 30px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 12px;
+  height: 50px;
+}
+/*
+.distill-site-footer {
+  color: #581845 ;
+  background-color: #C70039;
+  margin-top: 0px;
+  padding: 50px 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 10px;
+  text-transform: lowercase;
+  
+}
+*/
+d-code {
+  background: white;
+}
+
+/* Change bullets */
+ul > li::marker {
+  font-size: 1.125em;
+  color: #ff414b;
+}
+
+/* Change link appearance */
+d-article a {
+  border-bottom: 12px solid #ffd8db;
+  text-decoration: none;
+}
+
+/*-- Additional custom styles --*/
+
+.posts-list .metadata .publishedDate {
+    color: rgb(249, 83, 85);
+}
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono');
+d-article pre code {
+  color: #383838;
+  background: rgba(249, 83, 85, 0.1)
+  font-family: 'Fira Code', monospace;;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+d-article a {
+    border-bottom: 2px solid rgba(249, 83, 85, 0.4);
+    text-decoration: none;
+}
+
+.distill-site-header .title {
+    font-weight: 600; 
+}
+
+ul > li::marker {
+  color: rgb(249, 83, 85);
+}
+
+/* dropdown navbar color on mobile */
+
+@media screen and (max-width: 768px){
+  .distill-site-header.responsive {
+      background: rgba(255,255,255,0.99);
+  }
+}
+
+/* No navbar links on mobile except for the title and the nav-toggle */
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown {
+    display: none;
+  }
+  
+  .distill-site-header a.title, .distill-site-header a.nav-toggle {
+    display: inline-block;
+    padding: 10px 0px;
+    margin: 10px 14px; 
+  }
+}

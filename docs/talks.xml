@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:distill="https://distill.pub/journal/" version="2.0">
+  <channel>
+    <title/>
+    <link>https://github.com/mgisa/myblog</link>
+    <atom:link href="https://github.com/mgisa/myblog/talks.xml" rel="self" type="application/rss+xml"/>
+    <description>The personal website of Murera Gisa.
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Thu, 16 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Critical Analysis of the Household Socio-Economic Status on Childhood Stunting in Rwanda</title>
+      <dc:creator>Murera Gisa (National Bank of Rwanda, elgisamur@gmail.com)</dc:creator>
+      <dc:creator>Afolabi Luqman (University of Kigali, aluqman@uok.ac.rw)</dc:creator>
+      <dc:creator>Richard Kabanda (University of Rwanda, richacha@gmail.com)</dc:creator>
+      <link>https://github.com/mgisa/myblog/talks/2022-11-08-Rwanda-Childhood-Stunting</link>
+      <description>This research paper has been presented at Fifth International Conference of East African Business and Economic Watch (5th EABEW-2022) held at Kigali June 16th-17th 2022).</description>
+      <category>publication paper</category>
+      <category>Modeling</category>
+      <category>Health Economics</category>
+      <guid>https://github.com/mgisa/myblog/talks/2022-11-08-Rwanda-Childhood-Stunting</guid>
+      <pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/mgisa/myblog/talks/2022-11-08-Rwanda-Childhood-Stunting/stunting.png" medium="image" type="image/png" width="2220" height="1055"/>
+    </item>
+    <item>
+      <title>Text Mining for Public Sentiment Analytics in the National Bank of Rwanda</title>
+      <dc:creator>Murera Gisa (BNR, elgisamur@gmail.com)</dc:creator>
+      <dc:creator>Dominique Ntirushwa (BNR, dntirushwa@gmail.com)</dc:creator>
+      <dc:creator>Sheilla M.Rukundo (BNR, smuhongayire@bnr.rw)</dc:creator>
+      <link>https://github.com/mgisa/myblog/talks/2022-02-21-sentiments-banks</link>
+      <description>This research paper has been published at African Economic Research Consortium (AERC|2021). Which is the most active research and capacity building institutions in the world with a focus on Africa.</description>
+      <category>publication paper</category>
+      <category>Machine Learning</category>
+      <category>Natural Language Processing</category>
+      <guid>https://github.com/mgisa/myblog/talks/2022-02-21-sentiments-banks</guid>
+      <pubDate>Mon, 21 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/mgisa/myblog/talks/2022-02-21-sentiments-banks/sentiments.png" medium="image" type="image/png" width="504" height="530"/>
+    </item>
+  </channel>
+</rss>
