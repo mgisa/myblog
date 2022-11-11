@@ -2,5 +2,5 @@
 title: "Publications"
 listing: talks
 twitter:
-  creator: '@MureraG'
+  creator: '@gisa_murera'
 ---

@@ -17,6 +17,7 @@ output:
     highlight: default
     self_contained: false
     toc: true
+    toc_float: true
 ---
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 knitr::opts_chunk$set(error = TRUE)

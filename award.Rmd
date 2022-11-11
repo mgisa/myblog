@@ -1,0 +1,39 @@
+---
+title: "Awards and Prizes"
+description: |
+  This serves to efficiently present the memebrship, prizes, grants, scholarships, awards received.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+### Scholarships
+
+* Full funded Bachelor scholarship worth ($800,000Frw/year$) by the Government of Rwanda at University of Rwanda, College of Education, Rwanda ($2011-2014$)
+
+* Full funded Masters Scholarship worth of $50,000USD$ by the MasterCard Foundation at African Institute for Mathematical Sciences (AIMS), Rwanda ($2017-2018$)
+
+### Awards, Prizes and Grants
+
+* The MasterCard Foundation Scholar medal at African Institute for Mathematical Science, AIMS Rwanda ($2019$)
+
+* The MasterCard Foundation seed fund recipient worth of $5,000USD$ to implement __The Real Time and  Automatic Irrigation System project__ ($2019$)
+
+* The UNESCO Participation Project grant worth of ($26,000USD$)recipient to implement __The Digital Monitoring of Air Quality in TVET & Secondary Schools in Rwanda: A pilot study in the City of Kigali, Rwanda__ ($2022$)
+
+### Memberships
+
+* Country National Trainer, Artificial Intelligence for Disaster Risk Reduction in East Africa, Rwanda.
+* Machine Learning and Data Science Africa (MLDS-Africa).
+* Artificial Intelligence for Good, United Nations Platform for Artificial Intelligence.
+* Community of Practice in the field of Data Science for policy decision making, Rwanda
+
+-----------------------------------------------------------------------
+
+Copyright © 2022 Murera Gisa. All Rights Reserved. @Powered by Distill platform
+
+
+               

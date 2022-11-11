@@ -12,7 +12,8 @@ author:
 date: 2022-02-21
 categories:
   - publication paper
-  - NLP
+  - Machine Learning
+  - Natural Language Processing
 output:
   distill::distill_article:
     #self_contained: false

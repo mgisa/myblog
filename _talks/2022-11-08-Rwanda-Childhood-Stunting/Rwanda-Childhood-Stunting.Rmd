@@ -1,0 +1,76 @@
+---
+title: "Critical Analysis of the Household Socio-Economic Status on Childhood Stunting in Rwanda"
+description: |
+  This research paper has been presented at Fifth International Conference of East African Business and Economic Watch (5th EABEW-2022) held at Kigali June 16th-17th 2022).
+author:
+  - Murera Gisa (National Bank of Rwanda, elgisamur@gmail.com)
+    
+  - Afolabi Luqman (University of Kigali, aluqman@uok.ac.rw)
+  
+  - Richard Kabanda (University of Rwanda, richacha@gmail.com)
+   
+date: 2022-06-16
+categories:
+  - publication paper
+  - Modeling
+  - Health Economics
+output:
+  distill::distill_article:
+    #self_contained: false
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    self_contained: true
+draft: false
+preview: stunting.png  
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+#https://rstudio.github.io/distill/blog.html#creating-a-post
+#https://www.pipinghotdata.com/
+```
+
+#### Abstract
+
+__Background:__ 
+
+Over the past years, Rwanda has experienced the sound economic development and
+improvement in living standards. Contrary, lasting malnutrition and stunting among children aged less than five years remains stubbornly high and drawbacks their living standards regardless of its economic progress. Malnutrition considers main reason of children morbidity and mortality in the planet scenario, specifically in the developing countries including Rwanda. Additionally, childhood malnutrition severely affects their physical, cognitive growth and academic achievements hence poor human capital and national productivity. This study aimed to find out the crucial effect of socio-economic factors on malnutrition
+children aged under five years in Rwanda.
+
+__Methods:__
+
+Using cross-sectional data of 30,056 children obtained from the Rwanda 2019-2020 Demographic and Health Survey (RDHS), this study develops a novel approach of Multinomial Logistic Regression for empirical estimation of the magnitude effects of socio-economic factors linked to the nutrition status among children under five years of age in Rwanda. The Odds Ratio (OR) and Average Marginal Effect (AME) have been used to quantify the effects of socio-economic factors on childhood
+nutrition status; where the confusion matrix has been extensively used to assess the performance and reliability of the estimated model.
+
+__Results:__
+
+Empirical results of this study revealed that the prevalence of moderate and severe stunting was approximately $34.2\% [97.5\%𝐶𝐼 : 29.8−34.6]$ and $10.4\% [97.5\%𝐶𝐼 : 16.3−24.8]$ respectively
+among children particularly in rural areas of Rwanda. The multivariate analysis specified that the most stunting status were significantly associated with household wealth quintile, poor and poorest families $ (OR = 1.0366;0.756 [97.5\%𝐶𝐼 : 1.234−3.376], 𝐴𝑀𝐸 = 0.327;0.285)$, maternal education(no and primary schooling) $(𝑂𝑅 = 1.043;1.004 [97.5\%𝐶𝐼 : 1.584−2.976], 𝐴𝑀𝐸 = 0.0083;0.0074)$,
+parent’s occupation (unemployed, domestics and famers) $(𝑂𝑅 = 0.842;0.649 [97.5\%𝐶𝐼 : 0.780−1.760], 𝐴𝑀𝐸 =0.0484;0.067)$, Household size $(𝑂𝑅 = 0.998;0.996 [97.5\%𝐶𝐼 : 2.34−4.76], 𝐴𝑀𝐸 = 0.0034;0.006)$.
+Stunting was highly correlated with the maternal age and her age at first marriage (younger and early
+married mothers). The results showed also, that stunting was mostly correlated with male gender
+$(𝑂𝑅 = 1.004;0.985 [97.5\%𝐶𝐼 : 3.41−4.56], 𝐴𝑀𝐸 = 0.5413;0.374)$, children of urban areas(Kigali
+city) $(𝑂𝑅 = 0.991;0.978,97.5\%𝐶𝐼 : 0.476-1.987, 𝐴𝑀𝐸 = −0.1608;−0.181)$ for moderate and severe
+stunting respectively.
+
+__Conclusion:__
+
+This study concludes that prevalence of higher-level malnutrition leads to stunting are
+highly associated with lowest socio-economic status. And it reveals that the nutrition suffering at early
+age leads to permanent irreversible impairment, and obviously affect future generations productivity.
+Besides, it recommends both policy makers and stakeholders regarding the re-allocation of resources to
+the most vulnerable population for health, educational and economic benefits.
+
+__Keywords:__
+Socio-economic status, Stunting, confusion matrix, policy development
+
+__JEL Classification:__ I14, I15, I31, O12
+
+#### Publication House and Link
+
+The research paper is under reviewed and hopeful will be published soon. Then the link will be shared. 
+
+

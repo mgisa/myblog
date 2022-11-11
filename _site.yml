@@ -2,31 +2,55 @@ name: "my_blog"
 title: ""
 description: |
   The personal website of Murera Gisa.
-base_url: https://github.com/my_website
+base_url: https://github.com/mgisa/myblog
 theme: theme.css
-output_dir: "_site"
+output_dir: "docs"
 navbar:
  search: true
  logo: 
-  image: images/databrain.png
-  href: https://www.rpubs.com
+  image: images/image-modified.png
+  href: https://www.rpubs.com/mgisa
  right:
   - text: "Home" 
     href: home.html
-  - text: "Blog"
-    href: index.html
+  - text: "About"
+    menu:
+        - text: "At Glance"
+          href: about.html
+        - text: "Education"
+          href: education.html
+        - text: "Career"
+          href: career.html
+        - text: "Awards&Prizes"
+          href: award.html
+        - text: "Detailed CV"
+          href: C:/Users/jmurera/Desktop/Blog/myblog/CV/Gisa_Murera_CV.pdf
   - text: "Publications"
-    href: talks.html
+    menu: 
+        - text: "Paper and Articles"
+          href: talks.html
+        - text: "Projects"
+          href: projects.html
+  - text: "Blog"
+    href: index.html          
+  - text: "DS Training"
+    menu:
+        - text: "R"
+          href: Rtraining.html
+        - text: "Python"
+          href: Pytraining.html
+        - text: "Data Base"
+          href: database.html
+        - text: "Others"
+          href: others.html
   - text: "Gallery"
     href: gallery.html
-  - text: "About"
-    href: about.html
   - icon: fab fa-github
     href: https://github.com/mgisa
   - icon: fa fa-linkedin
     href: linkedin.com/in/murera-gisa-7009aa155
   - icon: fab fa-twitter
-    href: https://twitter.com/MureraG
+    href: https://twitter.com/gisa_murera
   - icon: fa fa-rss
     href: index.xml  
     
@@ -36,8 +60,8 @@ output:
       in_header: giscus.html
 google_analytics: "UA-128676462-1"
 twitter:
-  site: "@MureraG"
-  creator: "@MureraG"
+  site: "@gisa_murera"
+  creator: "@gisa_murera"
 rss:
   full_content: true
 collections:
@@ -48,10 +72,17 @@ collections:
       share: [twitter, linkedin, facebook, google-plus, pinterest]
       subscribe: _Subscribe.html #Give right to subscribe to my blog
       citations: false #Remove article citation
-  #Add new sections
+  #Add new sections (Publicatios and Talks)
   talks:
       categories: true
       feed_items_max: 10 #Limiting ten blogs to be appeared
       share: [twitter, linkedin, facebook, google-plus, pinterest]
-      subscribe: _Subscribe.html #Give right to subscribe to my blog
+      #subscribe: _Subscribe.html #Give right to subscribe to my blog
+      citations: false #Remove article citation
+  #Add new section(Training materials)
+  teaching:
+      categories: true
+      feed_items_max: 10 #Limiting ten blogs to be appeared
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      #subscribe: _Subscribe.html #Give right to subscribe to my blog
       citations: false #Remove article citation

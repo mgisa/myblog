@@ -1,9 +1,43 @@
 ---
-title: "My Blog"
+title: "About Murera Gisa"
 description: |
-  Some additional details about the blog
+  This serves to efficiently present a series of my posts, tutorials, publications, awards, seminars and conference presentations to build an outstanding Data Science career.
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+ <div class="warning" style='background-color:#FCF7EA; color:#1A2067; border-left: solid #C70039  4px; border-radius: 4px; border-right: solid #C70039 4px; border-radius: 4px;'>
+<p style='padding:0.7em; margin-left:0.7em; display: inline-block;'>
+<img src="C:/Users/jmurera/Desktop/Blog/myblog/images/Gisa.jpg" style="zoom:60%;  float:left; padding:0.7em"/>
+My name is <b> Jean de Dieu Murera Gisa</b> preferable to be called <b> Gisa</b>;  A professional Data Scientist who is interested in solving problems related to various forms and formats of data in small, medium or/and large-scale. This is coupled with the zeal to be among the best and top world-class Data Scientists and Machine Learning Engineers known for the applications of big data in making informed policy decisions for institutions and industries. This triggers and sparks my passion  for the field of data science and Machine Learning.
+Gisa graduated with a First-Class Honors degree in Physics with Education at the University of Rwanda, College of Education in 2014, Kigali Rwanda.<br>
+</p>
+</div>
+ 
+ 
+ <div class="warning" style='background-color:#FCF7EA; color:#1A2067; border-left: solid #C70039  4px; border-radius: 4px; border-right: solid #C70039 4px; border-radius: 4px;'>
+<p style='padding:0.7em; margin-left:0.7em; display: inline-block;'>
+<img src="C:/Users/jmurera/Desktop/Blog/myblog/images/Meducation.jpg" style="zoom:20%;  float:left; padding:0.7em"/>
+In 2017, Gisa won a competitive MasterCard full Scholarship which worth $50,000 to study for a master degree in Mathematical Sciences, Data Science option at the African Institute for Mathematical Sciences (AIMS), Kigali, Rwanda. While studying at AIMS, Gisa became both students and MasterCard Scholars representative at the same time at the centre. Also, Murera Gisa holds a another Master degree of sciences in Economics obtained from the University of Kigali, Rwanda in November 2021.<br>
+</p>
+</div>
+ 
+<div class="warning" style='background-color:#FCF7EA; color:#1A2067; border-left: solid #C70039  4px; border-radius: 4px; border-right: solid #C70039 4px; border-radius: 4px;'>
+<p style='padding:0.7em; margin-left:0.7em; display: inline-block;'>
+<img src="C:/Users/jmurera/Desktop/Blog/myblog/images/Reducation.jpg" style="zoom:10%;  float:left; padding:0.7em"/>
+He undertook the different online programming languages like R and Python, SQL, data science courses, etc from several online learning platforms like DataCamp, Udemy, DataQuest, Edx, Cousera and got completion certificates. The completion of the programs like Data Science with R and R programming tracks make him certified data scientist with R from DataCamp.<br>
+</p>
+</div>
+
+In summarry, Gisa has used the set skills in data wrangling, analysis, Statistical modeling, machine learning, and dashboard storytelling to provide visual and formative statistical outputs and tools. His professional skills as a data scientist and Researcher has brought innovation to the Rwanda Environment Management Authority (REMA) in which he worked with a team to build dynamic air quality status report to regularly illustrate Air Quality updates and calculate air pollution level and gives Air Quality Index (AQI) in color code format with reference to guidelines from US Environment Protection Agency and World Health Organization, WHO. 
+
+Gisa Murera has a passion for mathematics, statistics, Economics, geospatial and satellite imagery analysis, machine learning, and data science. Also, he plans to become an innovator who propels scientific, educational, and economic self-sufficiency. He is one of those that promote data science among colleagues as a facilitator, mentor and a developer.
+
+-----------------------------------------------------------------------
+
+Copyright © 2022 Murera Gisa. All Rights Reserved. @Powered by Distill platform
+
+
+               

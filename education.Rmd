@@ -1,0 +1,113 @@
+---
+title: "Education"
+description: |
+  This serves to efficiently present the formal schools, universities, colleges and institutions attended. And also the certificates of completion held from informal education and skills possesed.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+### Education Background
+
+Here below are the list of higher academic institutions attended, period of attendance the final thesis (dissertations), allocated academic supervisors and a degree obtained:
+
+* __The University of Kigali, Rwanda__ 2018-2021
+
+  * Master of Science in Economics
+  
+  * _Thesis:_ Critical Exploration of Socio-Economic Status on Childhood Stunting in Rwanda
+  
+  * _Supervisor:_ Dr. Afolabi Luqman, PhD
+  
+* __The African Institute for Mathematical Sciences, AIMS Rwanda__ 2017-2019
+
+  * Master of Science in Mathematical Sciences
+  
+  * _Thesis:_ Exploration of Statistical Properties of Nearest Learning Machine
+  
+  * _Supervisor:_  Prof. Ernest Fokoue,Rochester Institute of Technology (RIT), USA
+
+* __The University of Rwanda, College of Education, Kigali Rwanda__ 2011-2014
+
+  * Bachelor of Science with Education in Physics
+  
+  * _Thesis:_ Impact assessment of Motivation on Physics Performance in Secondary Education
+  
+  * _Supervisor:_ Dr. Celestin Ntivuguruzwa, PhD
+  
+  
+### Computer Skills
+
+
+* Data Wrangling and Modelling
+
+* Distill web designing and Development
+
+* Package and API development
+
+* Web scraping and Analysis 
+
+* Data visualization and Dasboarding
+
+* Database management and UI designing
+
+* Feature engineering and hyperparameter tuning
+
+* Machine Learning and Predictive modelling
+
+* Natural Language Processing and Sentiment Analysis
+
+### Software Skills
+
+* Programming: R, RWeka, SparkR, Xaringan, Shiny, Python
+
+* Statistical Tools: STATA, EVIEWS
+
+* Database: SQL, BigQuery
+
+* Business intelligence: PowerBI, Tableau
+
+* Version control: Git and GitHub
+
+* Office tools: Microsoft Excel, PowerPoint, Word, Google Applications, One Drive Platform,etc
+
+* Unix and Ubuntu Tools: Latex, and Overleaf
+
+### Professional Programmes and/or Certifications
+
+* Big Data and Hadoop Essentials on Udemy (2018)
+
+* Geospatial Analysis and Radiant Earth Platform, Radiant Earth (2019)
+
+* Machine Learning and Statistical Analysis, DataCamp, USA (2020)
+
+* Scientific Computing and Python for Data Science, DataCamp, USA (2020)
+
+* SQL for Data Science, Coursera  (2020)
+
+* Social Media Analysis with R, DataCamp (2020)
+
+* Bond Valuation with R, DataCamp (2020)
+
+* National Trainer on Artificial Intelligence for Disaster Risk Reduction system, UNESCO (2021)
+
+* Machine Learning for Market Analysis with R, DataCamp (2022)
+
+* Statistics Compilation for Remittances, MEFMI&IMF (2022)
+
+* R Programming Career Track, DataCamp (2022)
+
+* Data Science with R Career Track, DataCamp (2022)
+
+* Trainer of Trainers, National Bank of Rwanda (2022)
+
+* Dockerization of ML Ops with PlumbeR API on Vetiver Cloud System
+
+For more information on Gisa, just find his detailed CV on CV tab.
+
+
+-----------------------------------------------------------------------------
+
+Copyright © 2022 Murera Gisa. All Rights Reserved. @Powered by Distill platform

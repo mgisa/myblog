@@ -6,7 +6,7 @@ links:
     icon: fab fa-linkedin-in
     url: "https://linkedin.com/in/murera-gisa-7009aa155"
   - label: Twitter
-    url: "https://twitter.com/MureraG"
+    url: "https://twitter.com/gisa_murera"
   - label: GitHub
     url: "https://github.com/mgisa"
   - label: Rpubs
@@ -17,4 +17,4 @@ site: distill::distill_website
 #toc:yes
 ---
 
-I am a Data scientist interested in Deep Learning and Natural Language Processing. I love wrangling, analyzing, visualizing and modelling data to publicily communicate the outputs. 
+I am a Data scientist interested in Machine Learning DevOps, Natural Language Processing, and climate modeling for policy making. I enjoy working on the different data driven projects from ideation to the production, augmenting the dashboard in companies and Easing tasks through Package and API development. 

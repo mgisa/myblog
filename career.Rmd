@@ -1,0 +1,73 @@
+---
+title: "Professional Carreer"
+description: |
+  This serves to efficiently present the proffessional summary and working experience in the field of data driven researches, machine learning, and data science.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<div class="warning" style='background-color:#FCF7EA; color:#1A2067; border-left: solid #C70039  4px; border-radius: 4px; border-right: solid #C70039 4px; border-radius: 4px;'>
+<p style='padding:0.7em; margin-left:0.7em; display: inline-block;'>
+<img src="C:/Users/jmurera/Desktop/Blog/myblog/images/career.jpg" style="zoom:20%;  float:left; padding:0.7em"/>
+Murera Gisa is proactive, highly motivated, and skilled ML and data scientist with more than three years of experience in the data science area. Successfully accomplished Natural Language Processing, Text Mining, and Sentiment Analytics project indicated by the deployed tool for public sentiment monitoring and published research papers at African Economic Research Consortium and East African Business and Economic Watch. He is eager and self-motivated to learn more and get experienced and among wold-class individual in field of Natural Language Processing (NLP), Machine Learning Operations (MLOps), and Data Science and their applications in different sectors. He is also experienced in data-driven research and in the implementation of funded and granted data-related projects from ideation to the production. He is interested in the emerging applications of data science, Machine Learning, and Deep Learning technologies to solve environmental, health, social, and economic challenges. His aim is to relevantly understand and apply Data Science technological skills in order to accurately support the evidence-based socio-economic policies making to transform human life.<br>
+</p>
+</div>
+
+### Profesional Experience
+
+1. National Bank of Rwanda, BNR ($2020-\mathcal{Present}$)
+
+_Position:_ Data Scientist
+
+* __Key responsibilities:__
+
+  * Developing new economic indicators using big data sources
+  * Participating in artificial intelligence and big data analytics projects
+  * Leveraging data science approaches to identify the insightful information hidden from different types of data in the National Bank of Rwanda.
+  * Designing and developing different visual dashboards and data-driven tools for economic monitoring in Rwanda.
+  
+* __Key accomplishments:__
+
+  * Developed and deployed a robust public perception and sentiments monitoring tool to regularly monitor the public perception and sentiments towards the National Bank of Rwanda’s communication. 
+  * Developed an Economic Monitoring Dashboard using data from the financial sector and surveys for policymakers to monitor key economic variables in real-time.
+  * Built an automated web scraper for economic news, social media, and real estate to develop the underlying index to monitor macroeconomic performance.
+  * Developed a social media sentiment index to be correlated with other macroeconomic indicators to regularly monitor the economic performance in Rwanda.
+  * Established and maintained an effective process for validating and updating predictive models 
+
+
+2. Rwanda Environment Management Authority, REMA ($June.2019 – Mar.2020$)
+
+   _Position:_ Data Scientist on Air Quality and Climate Change Monitoring Project.
+   
+* __Key accomplishments:__
+
+  * Provided mathematical and statistical expertise to research and analysis of air quality data to drive evidence-based decision-making.
+  * Provided a regular visual time report and dashboard on air quality status in Kigali City.
+  * Develop automated air quality data analysis R script to regularly analyze and develop a visual report and dashboard on air quality status in Rwanda.
+  * Provided a report on Aerosol Source Apportionment in Kigali City through the usage of the Statistical Machine Learning Techniques.
+  * Trained staff on the use of R statistical software for Air Quality Data Analysis.
+
+3. Bank of Africa PLC ($May.2018– Dec.2018$)
+
+_Position:_ Business Intelligence and Data Analyst.
+
+* __Key accomplishments:__
+
+  * Elaborated methodologies for market penetration and business performance of the bank.   * Developed Machine Learning Models for Credit risk analysis and customer segmentation.
+  * Developed a visual Shiny dashboard for the financial performance of the bank over period of 2016- 2018.
+  
+  
+3. College du Christ Roi- Nyanza	($Jan. 2012 – Jul.2017$)
+   
+_Position:_ Mathematics and Physics Teacher
+
+* __Key accomplishments:__
+
+  * Developed Mathematics and Physics teaching modules based on the National curriculum development and deliver the course contents.
+  * Assessed and evaluated students and participated in co-curricular activities
+
+-----------------------------------------------------------------------------
+
+Copyright © 2022 Murera Gisa. All Rights Reserved. @Powered by Distill platform

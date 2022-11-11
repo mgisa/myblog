@@ -60,7 +60,15 @@ In this workshop, [Murera Gisa](https://twitter.com/MureraG){target="_blank"} di
 We demonstrate handy functions in `usethis`, `devtools`,`openair`and other R built-in libraries and  strategical packages
 for the entire data analysis workflow to the monitoring tool deployment and publicly avail it for policy implimentation.
 
-The speaker share the other  blog done on the __Impact of Weather Conditions on Air Pollution Concentration__ which can be found [Here](https://rpubs.com/mgisa/Air_Quality_Data_Visualization) to clearly show how data analytics might relevently identify the insightful information hidden from data and support the mitigation policy implimentation.
+The speaker share the other  blog done on the __Impact of Weather Conditions on Air Pollution Concentration__ which can be found [Here](https://rpubs.com/mgisa/Air_Quality_Data_Visualization) to clearly show how data analytics might relevently identify the insightful information hidden from data and support the mitigation policy implementation.
 
+# Acknowledgments {.appendix}
 
+We'd like to thank the UNESCO Rwanda commission for the opportunity. 
 
+<center>Visitors<center>
+<center>
+<div id="sfcxp6p78e5c2tqd1zu928z9d2e7y8fkjrd"></div>
+<script type="text/javascript" src="https://counter8.optistats.ovh/private/counter.js?c=xp6p78e5c2tqd1zu928z9d2e7y8fkjrd&down=async" async></script>
+<noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter8.optistats.ovh/private/freecounterstat.php?c=xp6p78e5c2tqd1zu928z9d2e7y8fkjrd" border="0" title="website counter" alt="website counter"></a></noscript>
+</div><center>
