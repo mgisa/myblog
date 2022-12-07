@@ -8,5 +8,187 @@
 </description>
     <generator>Distill</generator>
     <lastBuildDate>Fri, 11 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Explaining AI Visualization(ModelStudio)</title>
+      <dc:creator>Murera Gisa</dc:creator>
+      <link>https://github.com/mgisa/myblog/others/2022-11-12-interpretation-of-ML-outputs</link>
+      <description>
+
+
+&lt;p&gt;&lt;a href="https://www.rpubs.com/mgisa" class="icon-link" target="_blank" rel="noopener"&gt;&lt;i class="fas fa-pencil-alt"&gt;&lt;/i&gt; RPubs blog posts&lt;/a&gt;&lt;a href="https://www.youtube.com/watch?v=XW1ZeJKVnZk" class="icon-link" target="_blank" rel="noopener"&gt;&lt;i class="fas fa-play-circle"&gt;&lt;/i&gt; modelStudio&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="overview"&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This small blog post is aiming to visual explain the output of
+trained and won machine learning model through the usage of
+&lt;code&gt;modelstudio&lt;/code&gt; library created by &lt;em&gt;Matt Dancho&lt;/em&gt; and
+being hosted in CRAN. &lt;code&gt;modelStudio&lt;/code&gt; is a new R package that
+makes it easy to interactively explain machine learning models using
+state-of-the-art techniques like Shapley Values, Break Down plots, and
+Partial Dependence (Matt Dancho, 2022).&lt;/p&gt;
+&lt;h2 id="steps-and-workflow"&gt;Steps and Workflow&lt;/h2&gt;
+&lt;p&gt;In this blog, we will learn how to make my 4 most important
+Explainable AI plots:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Feature Importance&lt;/li&gt;
+&lt;li&gt;Break Down Plot&lt;/li&gt;
+&lt;li&gt;Shapley Values&lt;/li&gt;
+&lt;li&gt;Partial Dependence&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="step1-loading-data-and-libaries"&gt;Step1: Loading data and
+Libaries&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Load the libraries and Data
+&lt;ul&gt;
+&lt;li&gt;Load Libraries: Load &lt;code&gt;modelStudio&lt;/code&gt; , &lt;code&gt;DALEX&lt;/code&gt;,
+&lt;code&gt;tidyverse&lt;/code&gt; and &lt;code&gt;tidymodels&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Import Data: We’re using the mpg dataset that comes with
+ggplot2.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="r"&gt;&lt;code&gt;library(modelStudio)
+library(tidyverse)
+library(DALEX)
+library(tidymodels)
+
+data&amp;lt;- rio::import(&amp;quot;C:/Users/jmurera/Desktop/Blog/myblog/data/Breast_cancer_data.csv&amp;quot;)
+
+data_tbl&amp;lt;-data%&amp;gt;% mutate_if(is.integer, as.factor) %&amp;gt;% as.tibble()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The data to be used looks like this&lt;/p&gt;
+&lt;pre class="r"&gt;&lt;code&gt;library(flextable)
+ft &amp;lt;- flextable(head(data_tbl))
+ft &amp;lt;- autofit(ft)
+
+for(i in 1:1){
+  flextable_to_rmd(ft)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;template id="aafcae3b-fd23-4bae-8c9a-c6c79bb2900b"&gt;&lt;style&gt;
+.tabwid table{
+  border-spacing:0px !important;
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+.katex-display {
+    margin: 0 0 !important;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-a32a3d80{}.cl-a323b956{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a3264702{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a3264716{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a3265620{width:84.1pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a326562a{width:87.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a326562b{width:100.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265634{width:76.2pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265635{width:113.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265636{width:67pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a326563e{width:84.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265648{width:87.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265649{width:100.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a326564a{width:76.2pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a326564b{width:113.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265652{width:67pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265653{width:84.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265654{width:87.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265655{width:100.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a326565c{width:76.2pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a326565d{width:113.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265666{width:67pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265670{width:84.1pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265671{width:87.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a326567a{width:100.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a326567b{width:76.2pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a326567c{width:113.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a3265684{width:67pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-a32a3d80'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-a3265620"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;mean_radius&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326562a"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;mean_texture&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326562b"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;mean_perimeter&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265634"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;mean_area&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265635"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;mean_smoothness&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265636"&gt;&lt;p class="cl-a3264716"&gt;&lt;span class="cl-a323b956"&gt;diagnosis&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-a326563e"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;17.99&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265648"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;10.38&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265649"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;122.80&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326564a"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;1,001.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326564b"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;0.11840&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265652"&gt;&lt;p class="cl-a3264716"&gt;&lt;span class="cl-a323b956"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-a326563e"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;20.57&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265648"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;17.77&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265649"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;132.90&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326564a"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;1,326.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326564b"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;0.08474&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265652"&gt;&lt;p class="cl-a3264716"&gt;&lt;span class="cl-a323b956"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-a326563e"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;19.69&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265648"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;21.25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265649"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;130.00&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326564a"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;1,203.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326564b"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;0.10960&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265652"&gt;&lt;p class="cl-a3264716"&gt;&lt;span class="cl-a323b956"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-a3265653"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;11.42&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265654"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;20.38&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265655"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;77.58&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326565c"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;386.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326565d"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;0.14250&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265666"&gt;&lt;p class="cl-a3264716"&gt;&lt;span class="cl-a323b956"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-a326563e"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;20.29&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265648"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;14.34&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265649"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;135.10&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326564a"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;1,297.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326564b"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;0.10030&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265652"&gt;&lt;p class="cl-a3264716"&gt;&lt;span class="cl-a323b956"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-a3265670"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;12.45&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265671"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;15.70&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326567a"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;82.57&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326567b"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;477.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a326567c"&gt;&lt;p class="cl-a3264702"&gt;&lt;span class="cl-a323b956"&gt;0.12780&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-a3265684"&gt;&lt;p class="cl-a3264716"&gt;&lt;span class="cl-a323b956"&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="98b8fc2e-b18e-4142-9446-d5a6a6fb7c59"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("98b8fc2e-b18e-4142-9446-d5a6a6fb7c59");
+var template = document.getElementById("aafcae3b-fd23-4bae-8c9a-c6c79bb2900b");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = caption.style.cssText+"display:block;";
+  dest.parentNode.insertBefore(caption, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+&lt;p&gt;We want to understand how breast cancer diagnosis status can be
+estimated based on the remaining 5 columns.&lt;/p&gt;
+&lt;h3 id="step2-make-a-predictive-model"&gt;Step2: Make a Predictive
+Model&lt;/h3&gt;
+&lt;p&gt;The best way to understand what affects cancer diagnosis decision is
+to build a predictive model (and then explain it). Let’s build an
+&lt;code&gt;xgboost&lt;/code&gt; model using the &lt;code&gt;tidymodels&lt;/code&gt; ecosystem.
+If you’ve never heard of &lt;code&gt;Tidymodels&lt;/code&gt;, it’s like Scikit Learn
+for R and CARET ecosystem.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Select Model Type: We use the &lt;code&gt;boost_tree()&lt;/code&gt; function
+to establish that we are making a Boosted Tree&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Set the Mode: Using &lt;code&gt;set_mode()&lt;/code&gt; we select
+&lt;strong&gt;classification&lt;/strong&gt; because we are predicting a class label
+of patient.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Set the Engine: Next we use &lt;code&gt;set_engine()&lt;/code&gt; to tell
+&lt;em&gt;Tidymodels&lt;/em&gt; to use the &lt;code&gt;xgboost&lt;/code&gt; library.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fit the Model: This performs a simple training of the model to
+fit each of the 5 predictors to the target diagnosis. Note that we did
+not perform cross-validation, hyperparameter tuning, or any advanced
+concepts as they are beyond the scope of this tutorial.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="r"&gt;&lt;code&gt;fit_xgboost&amp;lt;- boost_tree(learn_rate = 0.3) %&amp;gt;% 
+              set_mode(&amp;quot;classification&amp;quot;) %&amp;gt;% 
+              set_engine(&amp;quot;xgboost&amp;quot;) %&amp;gt;% 
+              fit(diagnosis~.,data=data_tbl)
+#fit_xgboost&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="step3-make-explainer"&gt;Step3: Make Explainer&lt;/h3&gt;
+&lt;p&gt;With above predictive model, we are ready to create an
+&lt;em&gt;explainer&lt;/em&gt;. In basic terms, an &lt;em&gt;explainer&lt;/em&gt; is a
+consistent and unified way to explain predictive models. The
+&lt;em&gt;explainer&lt;/em&gt; can accept many different model types like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tidymodels&lt;/li&gt;
+&lt;li&gt;mlr3&lt;/li&gt;
+&lt;li&gt;H2O&lt;/li&gt;
+&lt;li&gt;Python Scikit Learn Models And it returns the explanation results
+from the model in a consistent format for investigation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, below is the code to create the explainer.&lt;/p&gt;
+&lt;pre class="r"&gt;&lt;code&gt;#---------Explainer
+explainer&amp;lt;-DALEX::explain(
+  model = fit_xgboost,
+  data= data_tbl[,-6],
+  y=as.numeric(unlist(data_tbl[,6])),
+  label = &amp;quot;Extreme Gradient Boosting Machine (XGBoost)&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Preparation of a new explainer is initiated -&amp;gt; model label :
+Extreme Gradient Boosting Machine (XGBoost) -&amp;gt; data : 569 rows 5 cols
+-&amp;gt; data : tibble converted into a data.frame -&amp;gt; target variable :
+569 values -&amp;gt; predict function : yhat.model_fit will be used (
+default ) -&amp;gt; predicted values : No value for predict function target
+column. ( default ) -&amp;gt; model_info : package parsnip , ver. 1.0.3 ,
+task classification ( default ) -&amp;gt; predicted values : numerical, min
+= 0.00912416 , mean = 0.6253965 , max = 0.9911299&lt;br /&gt;
+-&amp;gt; residual function : difference between y and yhat ( default )
+-&amp;gt; residuals : numerical, min = 0.1481095 , mean = 1.00202 , max =
+1.515258&lt;br /&gt;
+A new explainer has been created!&lt;/p&gt;
+&lt;h3 id="step4-run-modelstudio"&gt;Step4: Run modelStudio&lt;/h3&gt;
+&lt;pre class="r"&gt;&lt;code&gt;modStudio&amp;lt;-modelStudio::modelStudio(explainer = explainer)
+#modStudio&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="acknowledgement"&gt;Acknowledgement&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We intensively express our recognition to the developers of
+&lt;code&gt;modelStudio&lt;/code&gt; who are &lt;strong&gt;Hubert Baniecki&lt;/strong&gt; and
+&lt;strong&gt;Przemyslaw Biecek&lt;/strong&gt;. This package is part of the Dr. Why
+ecosystem of R packages, which are a collection of tools for Visual
+Exploration, Explanation and Debugging of Predictive Models. Thank you
+for everything you do, we owe you much respect to simplify our work.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class="r distill-force-highlighting-css"&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      <distill:md5>3cec081e97c8979b77586ae1e9f77b4a</distill:md5>
+      <category>Machine Learning</category>
+      <category>modelStudio</category>
+      <category>tidyverse</category>
+      <category>DALEX</category>
+      <guid>https://github.com/mgisa/myblog/others/2022-11-12-interpretation-of-ML-outputs</guid>
+      <pubDate>Fri, 11 Nov 2022 00:00:00 +0000</pubDate>
+    </item>
   </channel>
 </rss>

@@ -2170,7 +2170,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   html {
     /*-- Main font sizes --*/
-    --title-size:      30px;
+    --title-size:      16px;
     --body-size:       1.06rem;
     --code-size:       14px;
     --aside-size:      10px;
@@ -2198,12 +2198,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   /*-- ARTICLE TABLE OF CONTENTS --*/
   .d-contents {
-    --heading-size:    16px;
+    --heading-size:    15px;
     --contents-size:   13px;
   }
 
   .d-contents nav a:hover {
-      color: #581845;
+      color: #FF5733 ;
       transform: scale(1.7); /* change scale to control hover zoom, now it is in 1:7 ratio */
       padding-left:20%; /* change percentage value to control left gap during hover */
       background-color: #FCF7EA; /* background colour on hover, kept as white as it is my bg colour */
@@ -2231,7 +2231,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* These properties only apply to Distill sites and blogs  */
 
   .distill-site-header {
-    --title-size:       20px;
+    --title-size:       25px;
     --text-color:       rgba(255, 255, 255, 0.8);
     --text-size:        18px;
     --hover-color:      #dd424c; /* edited */
@@ -2286,10 +2286,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     position: relative;
     bottom: 0;
     width: 100%;
-    color: #050505ab;
+    color: #CB3E0D;
     background-color:#c70039;
     margin-top: 0px;
-    padding: 60px 30px;
+    padding: 60px 20px;
     font-size: 12px;
     letter-spacing: 1px;
     line-height: 12px;
@@ -2371,6 +2371,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       padding: 10px 0px;
       margin: 10px 14px; 
     }
+  }
+
+  /*----Changing overflow in article body when it has multiple pages-----*/
+
+  /* making code chunks with scroll bar */
+
+  /* the code below will change output chunk properties */
+  d-article pre { 
+    border-radius: 5px; /* rounded chunk window*/
+    font-size: 12px; /* output text size */
+    color: black; /* output text colour */
+    background-color: #F5F5F5; /* output chunk background colour */
+    padding: 5px 5px 5px 18px; /* top,right,bottom,left padding values */
+    overflow: auto !important; /* enables scroll bar */ 
+  }
+
+  /* the code below will change source code chunk properties */
+  d-article div.sourceCode pre { 
+    border-radius: 5px;
+    background-color: #F8F8FF;
+    color: black;
+    padding: 5px 5px 5px 18px;
+    overflow: auto !important;
   }</style>
   <style type="text/css">
   /* base style */
@@ -2527,7 +2550,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />

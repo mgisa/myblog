@@ -1,0 +1,157 @@
+---
+title: "Explaining AI Visualization(ModelStudio)"
+description: |
+  This post is inspired by the model and post written by Matt Dancho and being repricated on other data set to ultimately interprete the outputs of ML nodel in visual and most understandable way. 
+  'Machine learning is great, until you have to explain it': Matt Dancho has said,
+base_url: https://rpubs.com/mgisa
+author:
+  - name: Murera Gisa
+    url: https://rpubs.com/mgisa
+    affiliation: BNR
+    affiliation_url: https://bnr.rw
+date: 2022-11-12
+categories:
+  - Machine Learning
+  - modelStudio
+  - tidyverse
+  - DALEX
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    self_contained: true
+draft: false
+editor_options: 
+  chunk_output_type: console
+preview: poster.png
+self_contained: true
+---
+
+```{r, echo=FALSE, fig.cap="gganimate: worth to try it and learn it", out.extra="class=external",}
+#knitr::include_graphics("poster.png")
+```
+
+
+```{r thumbnail, eval=TRUE, echo=FALSE}
+#| fig.cap: > 
+#|   Question and answer, paraphrased, from the workshop.
+#| fig.alt: >
+#|   Question: (39:27) How is running tests different than trying out different data types and sets on your function and debugging?
+#|   Answer: It is not different at all! What I have learned from being around other talented programmers is that they don’t have amazing brains that they can hold all these different variables in… testing is about getting that stuff out of your brain so that a computer can execute it.
+#knitr::include_graphics("poster.png")
+```
+
+```{r icon-links, eval=TRUE, echo=FALSE}
+distilltools::icon_link(icon = "fas fa-pencil-alt",
+          text = "RPubs blog posts",
+          url = "https://www.rpubs.com/mgisa")
+          
+          
+distilltools::icon_link(icon = "fas fa-play-circle",
+          text = "modelStudio",
+          url = "https://www.youtube.com/watch?v=XW1ZeJKVnZk")
+```
+
+## Overview
+
+This small blog post is aiming to visual explain the output of trained and won machine learning model through the usage of `modelstudio` library created by _Matt Dancho_ and being hosted in CRAN.
+`modelStudio` is a new R package that makes it easy to interactively explain machine learning models using state-of-the-art techniques like Shapley Values, Break Down plots, and Partial Dependence (Matt Dancho, 2022). 
+
+## Steps and Workflow
+
+In this blog, we will learn how to make my 4 most important Explainable AI plots:
+
+* Feature Importance
+* Break Down Plot
+* Shapley Values
+* Partial Dependence
+
+### Step1: Loading data and Libaries 
+
+* Load the libraries and Data
+  * Load Libraries: Load `modelStudio` , `DALEX`, `tidyverse` and `tidymodels`.
+  * Import Data: We’re using the mpg dataset that comes with ggplot2.
+
+```{r}
+library(modelStudio)
+library(tidyverse)
+library(DALEX)
+library(tidymodels)
+
+data<- rio::import("C:/Users/jmurera/Desktop/Blog/myblog/data/Breast_cancer_data.csv")
+
+data_tbl<-data%>% mutate_if(is.integer, as.factor) %>% as.tibble()
+```
+
+The data to be used looks like this
+
+```{r results='asis'}
+library(flextable)
+ft <- flextable(head(data_tbl))
+ft <- autofit(ft)
+
+for(i in 1:1){
+  flextable_to_rmd(ft)
+}
+```
+
+
+We want to understand how breast cancer diagnosis status can be estimated based on the remaining 5 columns.
+
+### Step2: Make a Predictive Model
+
+The best way to understand what affects cancer diagnosis decision is to build a predictive model (and then explain it). Let’s build an `xgboost` model using the `tidymodels` ecosystem. If you’ve never heard of `Tidymodels`, it’s like Scikit Learn for R and CARET ecosystem.
+
+* Select Model Type: We use the `boost_tree()` function to establish that we are making a Boosted Tree
+
+* Set the Mode: Using `set_mode()` we select __classification__ because we are predicting a class label of patient.
+
+* Set the Engine: Next we use `set_engine()` to tell _Tidymodels_ to use the `xgboost` library.
+
+* Fit the Model: This performs a simple training of the model to fit each of the 5 predictors to the target diagnosis. Note that we did not perform cross-validation, hyperparameter tuning, or any advanced concepts as they are beyond the scope of this tutorial.
+
+```{r results='asis'}
+fit_xgboost<- boost_tree(learn_rate = 0.3) %>% 
+              set_mode("classification") %>% 
+              set_engine("xgboost") %>% 
+              fit(diagnosis~.,data=data_tbl)
+#fit_xgboost
+```
+
+
+### Step3: Make Explainer
+
+With above predictive model, we are ready to create an _explainer_. In basic terms, an _explainer_ is a consistent and unified way to explain predictive models. The _explainer_ can accept many different model types like:
+
+* Tidymodels
+* mlr3
+* H2O
+* Python Scikit Learn Models
+And it returns the explanation results from the model in a consistent format for investigation.
+
+Now, below is the code to create the explainer.
+
+```{r results='asis'}
+#---------Explainer
+explainer<-DALEX::explain(
+  model = fit_xgboost,
+  data= data_tbl[,-6],
+  y=as.numeric(unlist(data_tbl[,6])),
+  label = "Extreme Gradient Boosting Machine (XGBoost)"
+)
+
+```
+
+### Step4: Run modelStudio
+
+```{r results='asis'}
+modStudio<-modelStudio::modelStudio(explainer = explainer)
+#modStudio
+```
+
+
+### Acknowledgement
+
+> We intensively express our recognition to the developers of `modelStudio` who are  __Hubert Baniecki__ and __Przemyslaw Biecek__. This package is part of the Dr. Why ecosystem of R packages, which are a collection of tools for Visual Exploration, Explanation and Debugging of Predictive Models. Thank you for everything you do, we owe you much respect to simplify our work.
+

@@ -41,13 +41,13 @@ self_contained: true
 
 ```{r icon-links, eval=TRUE, echo=FALSE}
 distilltools::icon_link(icon = "fas fa-pencil-alt",
-          text = "blog post",
-          url = "https://drive.google.com/file/d/15B1pUOTJ9naYxYaKiXsVEtLbzQF27CD4/view")
+          text = "RPubs blog posts",
+          url = "https://www.rpubs.com/mgisa")
           
           
-#distilltools::icon_link(icon = "fas fa-play-circle",
-          #text = "Recording",
-          #url = "https://youtu.be/4bPekjzIYiU")
+distilltools::icon_link(icon = "fas fa-play-circle",
+          text = "Rmarkdown Introduction",
+          url = "https://www.youtube.com/watch?v=tKUufzpoHDE")
 ```
 
 # Overview
