@@ -33,7 +33,5 @@ knitr::opts_chunk$set(echo = FALSE)
 
 -----------------------------------------------------------------------
 
-Copyright © 2022 Murera Gisa. All Rights Reserved. @Powered by Distill platform
-
 
                

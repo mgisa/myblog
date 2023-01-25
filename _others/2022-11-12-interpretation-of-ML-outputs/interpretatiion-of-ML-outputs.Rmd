@@ -3,12 +3,12 @@ title: "Explaining AI Visualization(ModelStudio)"
 description: |
   This post is inspired by the model and post written by Matt Dancho and being repricated on other data set to ultimately interprete the outputs of ML nodel in visual and most understandable way. 
   'Machine learning is great, until you have to explain it': Matt Dancho has said,
-base_url: https://rpubs.com/mgisa
-author:
-  - name: Murera Gisa
-    url: https://rpubs.com/mgisa
-    affiliation: BNR
-    affiliation_url: https://bnr.rw
+#base_url: https://rpubs.com/mgisa
+#author:
+ # - name: Murera Gisa
+  #  url: https://rpubs.com/mgisa
+  #  affiliation: BNR
+   # affiliation_url: https://bnr.rw
 date: 2022-11-12
 categories:
   - Machine Learning
@@ -24,7 +24,7 @@ output:
 draft: false
 editor_options: 
   chunk_output_type: console
-preview: poster.png
+preview: images/modelstudio.jpg
 self_contained: true
 ---
 

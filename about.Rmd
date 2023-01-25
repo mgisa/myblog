@@ -31,7 +31,7 @@ He undertook the different online programming languages like R and Python, SQL, 
 </p>
 </div>
 
-In summarry, Gisa has used the set skills in data wrangling, analysis, Statistical modeling, machine learning, and dashboard storytelling to provide visual and formative statistical outputs and tools. His professional skills as a data scientist and Researcher has brought innovation to the Rwanda Environment Management Authority (REMA) in which he worked with a team to build dynamic air quality status report to regularly illustrate Air Quality updates and calculate air pollution level and gives Air Quality Index (AQI) in color code format with reference to guidelines from US Environment Protection Agency and World Health Organization, WHO. 
+In summary, Gisa has used the set skills in data wrangling, analysis, Statistical modeling, machine learning, and dashboard storytelling to provide visual and formative statistical outputs and tools. His professional skills as a data scientist and Researcher has brought innovation to the Rwanda Environment Management Authority (REMA) in which he worked with a team to build dynamic air quality status report to regularly illustrate Air Quality updates and calculate air pollution level and gives Air Quality Index (AQI) in color code format with reference to guidelines from US Environment Protection Agency and World Health Organization, WHO. 
 
 Gisa Murera has a passion for mathematics, statistics, Economics, geospatial and satellite imagery analysis, machine learning, and data science. Also, he plans to become an innovator who propels scientific, educational, and economic self-sufficiency. He is one of those that promote data science among colleagues as a facilitator, mentor and a developer.
 

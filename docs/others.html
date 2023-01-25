@@ -2190,14 +2190,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-byline {
     --heading-size:    0.6rem;
     --heading-color:   rgba(0, 0, 0, 0.5);
-    --body-size:       0.8rem;
+    --body-size:       0.6rem;
     --body-color:      rgba(0, 0, 0, 0.8);
   }
 
   /*-- ARTICLE TABLE OF CONTENTS --*/
   .d-contents {
-    --heading-size:    15px;
-    --contents-size:   13px;
+    --heading-size:    12px;
+    --contents-size:   10px;
   }
 
   .d-contents nav a:hover {
@@ -2231,7 +2231,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   .distill-site-header {
     --title-size:       25px;
     --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        18px;
+    --text-size:        15px;
     --hover-color:      #dd424c; /* edited */
     --bkgd-color:       #900C3F;
   }
@@ -2378,9 +2378,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* the code below will change output chunk properties */
   d-article pre { 
     border-radius: 5px; /* rounded chunk window*/
-    font-size: 12px; /* output text size */
+    font-size: 14px; /* output text size */
     color: black; /* output text colour */
-    background-color: #F5F5F5; /* output chunk background colour */
+    background-color:  #E8D710; /* output chunk background colour */
     padding: 5px 5px 5px 18px; /* top,right,bottom,left padding values */
     overflow: auto !important; /* enables scroll bar */ 
   }
@@ -2388,7 +2388,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* the code below will change source code chunk properties */
   d-article div.sourceCode pre { 
     border-radius: 5px;
-    background-color: #F8F8FF;
+    font-size: 14px;
+    background-color: #E8D710;
     color: black;
     padding: 5px 5px 5px 18px;
     overflow: auto !important;
@@ -2548,7 +2549,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2683,150 +2684,171 @@ DS Training
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 <!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).on("load", function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      page_category = decodeURIComponent(page_category)
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
+
+
+<script type="application/javascript">
+
+function init_posts_list() {
+
+  function load_image(img) {
+    var src = $(img).attr('data-src');
+    if (src) {
+      $(img).attr('src', src);
+      $(img).on("load", function() {
+        img.removeAttribute('data-src');
+      });
+    }
+  }
+
+  function set_posts_visible(posts, visible) {
+    if (visible) {
+
+      // show bottom border by default
+      $(posts).removeClass('post-preview-last');
+
+      // apply limits if need be
+      var max_posts = 25;
+      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
+      if (apply_limits && posts.length > max_posts) {
+        posts = $(posts).slice(0, max_posts);
+      } else {
+        $('.posts-more a').addClass('hidden');
+      }
+
+      // apply last style
+      $(posts.slice(-1)[0]).addClass('post-preview-last');
+
+      $(posts).removeClass('hidden');
+      $(posts).find('img[data-src]').each(function(i, img) {
+        load_image(img);
+      });
+    } else {
+      $(posts).addClass('hidden');
+    }
+  }
+
+  function apply_hash_filter() {
+
+    // clear active state
+    $('.categories .active').removeClass('active');
+
+    // mark all posts invisible to start
+    set_posts_visible($('.posts-list').children('a'), false);
+
+    // if we have a hash filter
+    if (window.location.hash && window.location.hash.startsWith("#category:")) {
+
+      // mark posts that match the category visible
+      var page_category = window.location.hash.replace(/^#category:/, "");
+      page_category = decodeURIComponent(page_category)
+      var posts = $('.post-metadata').map(function(idx, script) {
+        var metadata = $.parseJSON($(script).html());
+        var post = null;
+        $.each(metadata.categories, function(idx, category) {
+          category = category.replace(/ /g,"_");
+          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
+            post = $(script).parent().get();
+            return false;
+          }
+        });
+        return post;
+      });
+      set_posts_visible(posts, true);
+
+      // mark the hash active
+      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
+
+      // update the list_caption
+      var list_caption = $('.posts-list-caption');
+      var caption = (page_category || '').toLowerCase() === "articles"
+        ? list_caption.attr('data-caption')
+        : ('Category: ' + page_category.replace(/_/g," "));
+      list_caption.text(caption);
+
+    } else {
+
+      // no hash filter, make all posts visible (subject to max display)
+      set_posts_visible($('.posts-list').children(), true);
+
+      // reset list caption
+      var list_caption = $('.posts-list-caption');
+      list_caption.text(list_caption.attr('data-caption'));
+
+
+    }
+  }
+
+  // more articles
+  function apply_post_limits(apply) {
+    if (apply) {
+      $('.posts-container').addClass('posts-apply-limit');
+      $('.posts-more a').removeClass('hidden');
+    } else {
+      $('.posts-container').removeClass('posts-apply-limit');
+      $('.posts-more a').addClass('hidden');
+    }
+  }
+
+  // click handling for tags
+  $('.dt-tag').click(function(ev) {
+    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
+    return false;
+  })
+
+  // hash filter handling
+  apply_hash_filter();
+  $(window).on('hashchange',function() {
+    apply_post_limits(true);
+    apply_hash_filter();
+  });
+
+  // more articles link
+  $('.posts-more a').click(function(e) {
+    e.preventDefault();
+    apply_post_limits(false);
+    apply_hash_filter();
+    return false;
+  });
+
+}
+
+</script>
+
+
 
 <div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
 <h1 class="posts-list-caption" data-caption="AQ, Climate Science, and Others">AQ, Climate Science, and Others</h1>
+<a href="others/2023-01-24-basic-Git-Commands-cheatsheet/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["Version Control System","GitHub","Gitbash"]}</script>
+<div class="metadata">
+<div class="publishedDate">Jan. 23, 2023</div>
+<div class="dt-authors"></div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Basic Git Commands for Biginners</h2>
+<div class="dt-tags">
+<div class="dt-tag">Version Control System</div>
+<div class="dt-tag">GitHub</div>
+<div class="dt-tag">Gitbash</div>
+</div>
+<p>This post is inspired by the error obtained when pushing the changes made to the Github repository which is "refusing to merge the unrelated histories".</p>
+</div>
+</a>
 <a href="others/2022-11-12-interpretation-of-ML-outputs/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["Machine Learning","modelStudio","tidyverse","DALEX"]}</script>
 <div class="metadata">
-<div class="publishedDate">Nov. 11, 2022</div>
+<div class="publishedDate">Nov. 12, 2022</div>
 <div class="dt-authors">
 <div class="dt-author">Murera Gisa</div>
 </div>
 </div>
-<div class="thumbnail"></div>
+<div class="thumbnail">
+<img/>
+</div>
 <div class="description">
 <h2>Explaining AI Visualization(ModelStudio)</h2>
 <div class="dt-tags">
@@ -2846,10 +2868,18 @@ function init_posts_list() {
 <ul>
 <li>
 <a href="#category:Articles">Articles</a>
-<span class="category-count">(1)</span>
+<span class="category-count">(2)</span>
 </li>
 <li>
 <a href="#category:DALEX">DALEX</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:Gitbash">Gitbash</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:GitHub">GitHub</a>
 <span class="category-count">(1)</span>
 </li>
 <li>
@@ -2864,6 +2894,10 @@ function init_posts_list() {
 <a href="#category:tidyverse">tidyverse</a>
 <span class="category-count">(1)</span>
 </li>
+<li>
+<a href="#category:Version_Control_System">Version Control System</a>
+<span class="category-count">(1)</span>
+</li>
 </ul>
 </div>
 </div>
@@ -2871,7 +2905,7 @@ function init_posts_list() {
 <a href="#">More articles &raquo;</a>
 </div>
 </div>
-<!--/radix_placeholder_article_listing-->
+<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
 <h1>AQ, Climate Science, and Others</h1>
@@ -2898,7 +2932,7 @@ function init_posts_list() {
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">
-<p>©Copyright 2022 | <a href="https://www.rpubs.com/mgisa">Murera
+<p>©Copyright 2023 | <a href="https://www.rpubs.com/mgisa">Murera
 Gisa</a> | All Rights Reserved</p>
 <p>Website created using <a
 href="https://rstudio.github.io/distill/website.html">the Distill® for R

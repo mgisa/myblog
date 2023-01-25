@@ -103,11 +103,10 @@ Here below are the list of higher academic institutions attended, period of atte
 
 * Trainer of Trainers, National Bank of Rwanda (2022)
 
-* Dockerization of ML Ops with PlumbeR API on Vetiver Cloud System
+* Dockerization of ML Ops with PlumbeR API on Vetiver Cloud System.
+
+* Creation of  REST APIs With R Plumber and putting them in production on several cloud server like [DigitalOcean](https://www.digitalocean.com/?ref=morioh.com&utm_source=morioh.com).
 
 For more information on Gisa, just find his detailed CV on CV tab.
 
-
------------------------------------------------------------------------------
-
-Copyright © 2022 Murera Gisa. All Rights Reserved. @Powered by Distill platform
+--------------------------------------------------------------------

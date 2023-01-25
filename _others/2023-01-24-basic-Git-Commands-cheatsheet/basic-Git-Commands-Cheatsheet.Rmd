@@ -1,0 +1,121 @@
+---
+title: "Basic Git Commands for Biginners"
+description: |
+  This post is inspired by the error obtained when pushing the changes made to the Github repository which is "refusing to merge the unrelated histories".
+base_url: https://github.com/mgisa
+preview: giterror.png
+#author:
+#  - name: Murera Gisa
+ #   url: https://github.com/mgisa
+ #   affiliation: BNR
+ #   affiliation_url: https://bnr.rw
+date: 2023-01-23
+categories:
+  - Version Control System
+  - GitHub
+  - Gitbash
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    self_contained: true
+draft: false
+editor_options: 
+  chunk_output_type: console
+self_contained: true
+---
+
+```{r, echo=FALSE, fig.cap="gganimate: worth to try it and learn it", out.extra="class=external",}
+#knitr::include_graphics("poster.png")
+```
+
+
+```{r thumbnail, eval=TRUE, echo=FALSE}
+#| fig.cap: > 
+#|   Question and answer, paraphrased, from the workshop.
+#| fig.alt: >
+#|   Question: (39:27) How is running tests different than trying out different data types and sets on your function and debugging?
+#|   Answer: It is not different at all! What I have learned from being around other talented programmers is that they don’t have amazing brains that they can hold all these different variables in… testing is about getting that stuff out of your brain so that a computer can execute it.
+#knitr::include_graphics("poster.png")
+```
+
+```{r icon-links, eval=TRUE, echo=FALSE}
+distilltools::icon_link(icon = "fas fa-pencil-alt",
+          text = "RPubs blog posts",
+          url = "https://www.rpubs.com/mgisa")
+          
+          
+distilltools::icon_link(icon = "fas fa-play-circle",
+          text = "Twitter",
+          url = "https://twitter.com/gisa_murera")
+```
+
+## Overview
+
+As I have mentioned above from the description of this short post, I have encountered the error called _refusing to merge unrelated histories_, when I tried to push the changes made to my project. With this, I will discuss the possible sources, how to fix such error and how to avoid it in future project. In addition,we will also get a chance to provide the cheatsheet for basic commands in Git.
+
+## Sources of the error
+
+Commonly, this error might be sourced from having branches with unrelated history base. This means that one is starting the branches independently of each other.For example if you start a new Git project on a local machine (i.e Rproject with Git version control) and then connect it to a remote GitHub branch (cloned from GitHub), these branches would have different history bases.
+
+The only exception is when one of the branches has no commits in it. In this case, they should merge without a problem. Otherwise, we'll get the _refusing to merge unrelated histories_ like in the following example:
+
+```{r  eval=FALSE, echo=TRUE}
+$ git pull origin main
+#output
+fatal: refusing to merge unrelated histories
+```
+
+
+## How to Fix the Error
+
+To fix the obtained error, you need to use the option __–-allow-unrelated-histories__ after the _git pull <remote> <branch>_ command. 
+
+- remote: is the remote repository URL or its short-name origin
+
+- branch: is the branch name that we'd like to merge
+
+Example
+
+```{r eval=FALSE, echo=TRUE}
+$ git pull origin main --allow-unrelated-histories
+
+```
+
+ 
+>The *–-allow-unrelated-histories* option will tell the Git that we allow merging branches with no common history base, which then should finish the merge without errors. 
+
+## How to avoid the Error in Future
+
+Typically, it's not the best practice to create a local repository branch independently of the remote repository. A more reliable way is to download the remote repository to the local machine using the git clone command.
+
+```{r eval=FALSE, echo=TRUE}
+ $ git clone <repo_url>
+```
+
+This way, we copy the repository from the remote server, and the commit history base remains the same for both remote and local branches.
+
+## Basic Commands in Git
+
+Here below are some of basic commands of Git
+
+- git config: used to set the email and name of the author
+- git init: used to start a new repository
+- git add + _file name_: adds file to the staging area
+- git commit -m "message": used to commit file
+- git status: list all the files that have to be committed 
+- git log: used to view the commit history
+- git giff: shows different between two files
+- git branch: lists all the local branches in the repository
+- git branch + _branch-name_: create a new branch
+- git branch -d + _branch-name_: used to delete the branch
+- git checkout + _branch-name_: used to switch from one branch to another
+- git push + _remote+branch-name_: used to save commits in the remote repository.
+- git pull + _repository link_: incorporates changes from a remote repository into the current branch.
+- git clone: download existing code from the remote repository
+- git stash: used to remove the uncommitted files temporarily
+- git reset undoes all the commits after the specified commit and preserves the change locally
+git rm + _file-name_: removes file from the directory.
+
+As conclusion, the above commands are being executed in Git bash or in Terminal.
