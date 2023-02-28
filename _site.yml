@@ -8,7 +8,7 @@ output_dir: "docs"
 navbar:
  search: true
  logo: 
-  image: images/image-modified.png
+  image: images/Rcoder.jpg
   href: https://www.rpubs.com/mgisa
  right:
   - text: "Home" 

@@ -1,0 +1,154 @@
+---
+title: "Interacting with the Database from RStudio"
+description: |
+  this to narrow down the complexity of interacting with databases to those who have zero skills on SQL but some skills in R programming!
+author:
+  - name: Murera Gisa
+    #url: http://rpubs.com/mgisa
+date: 2023-02-28
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: true
+    toc_float: true
+    code_folding: hide
+categories: 
+  - database
+  - DBI 
+  - dbplyr
+  - tidyverse   
+editor_options: 
+  chunk_output_type: console
+preview: images/database.png
+self_contained: no
+---
+
+```{r setup, include=FALSE}
+#source(here::here("_R/blog_setup.R"))
+knitr::opts_chunk$set(layout = "l-body")
+```
+
+```{r, echo=FALSE, fig.cap="gganimate: worth to try it and learn it", out.extra="class=external",}
+knitr::include_graphics(here::here("images/database.png"))
+```
+
+## Creating DB to be Used
+
+```{sql eval=FALSE}
+CREATE DATABASE IF NOT EXISTS Warehouse;
+
+```
+
+## Creating empty table on DB
+
+```{sql eval=FALSE}
+-- Create table called Penguins 
+
+CREATE TABLE IF NOT EXISTS penguins(
+  id INT NOT NULL AUTO_INCREMENT,
+  species  VARCHAR(32),
+  island  VARCHAR(32),
+  bill_length_mm DOUBLE,
+  bill_depth_mm DOUBLE,
+  flipper_length_mm INTEGER,
+  body_mass_g INTEGER,
+  sex VARCHAR(32),
+  year INTEGER,
+  PRIMARY KEY(id)
+)
+;
+
+```
+
+## Load the penguins csv table 
+
+```{sql eval=FALSE}
+- Load the csv in created table
+
+LOAD DATA LOCAL INFILE "/home/ubuntu/project/Markdown_Training/dplyr_and_DBI/penguins.csv"
+INTO TABLE penguins 
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+```
+
+
+## Connecting to the DB through Rstudio
+
+```{r eval=FALSE}
+library(dbplyr)
+library(DBI)
+library(dplyr)
+library(tidyverse)
+
+## Connecting to the DB with DB connection string hidden in .renviron
+
+conn <- dbConnect(
+  RMySQL::MySQL(),
+  host = Sys.getenv("mysql_hostname"),
+  port = as.numeric(Sys.getenv("mysql_port")),
+  user = Sys.getenv("mysql_user"),
+  password = Sys.getenv("mysql_passwd"),
+  dbname = "Warehouse",
+  timeout = 10
+)
+
+
+```
+
+## Assignment Questions
+
+```{r eval=FALSE}
+
+DBI::dbListTables(conn)#Checking the tables in TB
+
+pengins_tb <- dplyr::tbl(conn, "penguins") #Reading data from DB
+
+pengins_tb %>% collect()
+
+#Get the average body mass of penguins by sex and species
+avgbodymass <- pengins_tb %>%   
+              group_by(sex,species) %>% 
+              summarise(avgbodymass = round(mean(body_mass_g,na.rm = T), digits = 2)
+                        ) #%>%
+             # collect() 
+#show querry of above 
+avgbodymass %>%
+  show_query()
+#Writting low SQL
+
+avgbodymass <- DBI::dbGetQuery(conn, "
+                               SELECT sex, species, ROUND(AVG(body_mass_g), 2) AS avgbodymass
+                               FROM penguins
+                               GROUP BY sex, species
+                               ")
+#Which species observed most on every island
+
+speciesObserved_most <- pengins_tb %>% 
+                     group_by(island,species) %>% 
+                    summarise(num_species = n()) %>%
+                    filter(num_species==max(num_species)) 
+
+speciesObserved_most %>% show_query()
+
+speciesObserved_most <- DBI::dbGetQuery(conn, "
+SELECT island, species, num_species
+FROM (
+  SELECT *, MAX(num_species) OVER (PARTITION BY island) AS q03
+  FROM (
+    SELECT island, species, COUNT(*) AS num_species
+    FROM penguins
+    GROUP BY island, species
+  ) q01
+) q02
+WHERE (num_species = q03)
+                         ")
+
+#Disconnect from DB
+DBI::dbDisconnect(conn)
+```
+              
+
+

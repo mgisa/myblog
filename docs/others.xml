@@ -20,7 +20,6 @@
     </item>
     <item>
       <title>Explaining AI Visualization(ModelStudio)</title>
-      <dc:creator>Murera Gisa</dc:creator>
       <link>https://github.com/mgisa/myblog/others/2022-11-12-interpretation-of-ML-outputs</link>
       <description>This post is inspired by the model and post written by Matt Dancho and being repricated on other data set to ultimately interprete the outputs of ML nodel in visual and most understandable way. 
 'Machine learning is great, until you have to explain it': Matt Dancho has said,</description>

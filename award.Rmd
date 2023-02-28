@@ -1,7 +1,7 @@
 ---
 title: "Awards and Prizes"
 description: |
-  This serves to efficiently present the memebrship, prizes, grants, scholarships, awards received.
+  This serves to efficiently present the memebership, prizes, grants, scholarships, awards received.
 ---
 
 ```{r setup, include=FALSE}

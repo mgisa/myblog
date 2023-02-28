@@ -7,6 +7,19 @@
     <description>The personal website of Murera Gisa.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 13 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Interacting with the Database from RStudio</title>
+      <dc:creator>Murera Gisa</dc:creator>
+      <link>https://github.com/mgisa/myblog/DataBase/2023-02-16-db-connection</link>
+      <description>this to narrow down the complexity of interacting with databases to those who have zero skills on SQL but some skills in R programming!</description>
+      <category>database</category>
+      <category>DBI</category>
+      <category>dbplyr</category>
+      <category>tidyverse</category>
+      <guid>https://github.com/mgisa/myblog/DataBase/2023-02-16-db-connection</guid>
+      <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/mgisa/myblog/DataBase/2023-02-16-db-connection/distill-preview.png" medium="image" type="image/png" width="1237" height="700"/>
+    </item>
   </channel>
 </rss>

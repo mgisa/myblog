@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "path": "DataBase/2023-02-16-db-connection/",
+    "title": "Interacting with the Database from RStudio",
+    "description": "this to narrow down the complexity of interacting with databases to those who have zero skills on SQL but some skills in R programming!",
+    "author": [
+      {
+        "name": "Murera Gisa",
+        "url": {}
+      }
+    ],
+    "date": "2023-02-28",
+    "categories": [
+      "database",
+      "DBI",
+      "dbplyr",
+      "tidyverse"
+    ],
+    "contents": "\r\n\r\nContents\r\nCreating DB to be Used\r\nCreating empty table on DB\r\nLoad the penguins csv table\r\nConnecting to the DB through Rstudio\r\nAssignment Questions\r\n\r\n\r\n\r\nhide\r\n\r\nknitr::include_graphics(here::here(\"images/database.png\"))\r\n\r\n\r\n\r\nFigure 1: gganimate: worth to try it and learn it\r\n\r\n\r\n\r\nCreating DB to be Used\r\n\r\n\r\nhide\r\nCREATE DATABASE IF NOT EXISTS Warehouse;\r\n\r\nCreating empty table on DB\r\n\r\n\r\nhide\r\n-- Create table called Penguins \r\n\r\nCREATE TABLE IF NOT EXISTS penguins(\r\n  id INT NOT NULL AUTO_INCREMENT,\r\n  species  VARCHAR(32),\r\n  island  VARCHAR(32),\r\n  bill_length_mm DOUBLE,\r\n  bill_depth_mm DOUBLE,\r\n  flipper_length_mm INTEGER,\r\n  body_mass_g INTEGER,\r\n  sex VARCHAR(32),\r\n  year INTEGER,\r\n  PRIMARY KEY(id)\r\n)\r\n;\r\n\r\nLoad the penguins csv table\r\n\r\n\r\nhide\r\n- Load the csv in created table\r\n\r\nLOAD DATA LOCAL INFILE \"/home/ubuntu/project/Markdown_Training/dplyr_and_DBI/penguins.csv\"\r\nINTO TABLE penguins \r\nFIELDS TERMINATED BY ',' \r\nENCLOSED BY '\"'\r\nLINES TERMINATED BY '\\n'\r\nIGNORE 1 ROWS;\r\n\r\nConnecting to the DB through Rstudio\r\n\r\n\r\nhide\r\n\r\nlibrary(dbplyr)\r\nlibrary(DBI)\r\nlibrary(dplyr)\r\nlibrary(tidyverse)\r\n\r\n## Connecting to the DB with DB connection string hidden in .renviron\r\n\r\nconn <- dbConnect(\r\n  RMySQL::MySQL(),\r\n  host = Sys.getenv(\"mysql_hostname\"),\r\n  port = as.numeric(Sys.getenv(\"mysql_port\")),\r\n  user = Sys.getenv(\"mysql_user\"),\r\n  password = Sys.getenv(\"mysql_passwd\"),\r\n  dbname = \"Warehouse\",\r\n  timeout = 10\r\n)\r\n\r\n\r\nAssignment Questions\r\n\r\n\r\nhide\r\n\r\nDBI::dbListTables(conn)#Checking the tables in TB\r\n\r\npengins_tb <- dplyr::tbl(conn, \"penguins\") #Reading data from DB\r\n\r\npengins_tb %>% collect()\r\n\r\n#Get the average body mass of penguins by sex and species\r\navgbodymass <- pengins_tb %>%   \r\n              group_by(sex,species) %>% \r\n              summarise(avgbodymass = round(mean(body_mass_g,na.rm = T), digits = 2)\r\n                        ) #%>%\r\n             # collect() \r\n#show querry of above \r\navgbodymass %>%\r\n  show_query()\r\n#Writting low SQL\r\n\r\navgbodymass <- DBI::dbGetQuery(conn, \"\r\n                               SELECT sex, species, ROUND(AVG(body_mass_g), 2) AS avgbodymass\r\n                               FROM penguins\r\n                               GROUP BY sex, species\r\n                               \")\r\n#Which species observed most on every island\r\n\r\nspeciesObserved_most <- pengins_tb %>% \r\n                     group_by(island,species) %>% \r\n                    summarise(num_species = n()) %>%\r\n                    filter(num_species==max(num_species)) \r\n\r\nspeciesObserved_most %>% show_query()\r\n\r\nspeciesObserved_most <- DBI::dbGetQuery(conn, \"\r\nSELECT island, species, num_species\r\nFROM (\r\n  SELECT *, MAX(num_species) OVER (PARTITION BY island) AS q03\r\n  FROM (\r\n    SELECT island, species, COUNT(*) AS num_species\r\n    FROM penguins\r\n    GROUP BY island, species\r\n  ) q01\r\n) q02\r\nWHERE (num_species = q03)\r\n                         \")\r\n\r\n#Disconnect from DB\r\nDBI::dbDisconnect(conn)\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": "DataBase/2023-02-16-db-connection/distill-preview.png",
+    "last_modified": "2023-02-28T11:55:55+02:00",
+    "input_file": {},
+    "preview_width": 1237,
+    "preview_height": 700
+  }
+]
